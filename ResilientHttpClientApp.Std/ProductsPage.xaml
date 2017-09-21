@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ResilientHttpClientApp"
+             x:Class="ResilientHttpClientApp.Std.ProductsPage"
+             xmlns:viewModels="clr-namespace:ResilientHttpClientApp.Std">
+
+    <ContentPage.BindingContext>
+        <viewModels:ProductsViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20"
+                 Spacing="40">
+        <Label Text="Resilient Http"
+               FontSize="56"
+               TextColor="DodgerBlue" />
+        <Label Text="Xamarin Forms"
+               FontSize="50"
+               TextColor="Navy" />
+        <Button Text="Call Web Service"
+                TextColor="White"
+                BackgroundColor="Green"
+                FontSize="40"
+                Command="{Binding GetProductsCommand}" />
+
+        <ListView ItemsSource="{Binding Products}" />
+    </StackLayout>
+
+</ContentPage>
