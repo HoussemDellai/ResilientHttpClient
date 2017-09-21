@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ResilientHttpClientApp"
-             x:Class="ResilientHttpClientApp.Std.ProductsPage"
-             xmlns:viewModels="clr-namespace:ResilientHttpClientApp.Std">
+             xmlns:local="clr-namespace:ResilientHttpClientPcl"
+             x:Class="ResilientHttpClientPcl.ProductsPage"
+             xmlns:viewModels="clr-namespace:ResilientHttpClientPcl">
 
     <ContentPage.BindingContext>
         <viewModels:ProductsViewModel />
@@ -25,5 +25,4 @@
 
         <ListView ItemsSource="{Binding Products}" />
     </StackLayout>
-
 </ContentPage>

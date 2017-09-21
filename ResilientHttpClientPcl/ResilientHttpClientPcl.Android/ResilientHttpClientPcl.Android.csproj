@@ -6,12 +6,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{502B7148-DD8B-4524-85D0-214444202E16}</ProjectGuid>
+    <ProjectGuid>{62511587-59C2-4E73-876F-9C7B332B9CA5}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ResilientHttpClientApp.Droid</RootNamespace>
-    <AssemblyName>ResilientHttpClientApp.Android</AssemblyName>
+    <RootNamespace>ResilientHttpClientPcl.Droid</RootNamespace>
+    <AssemblyName>ResilientHttpClientPcl.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -111,6 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -130,9 +131,13 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ResilientHttpClientApp.Std\ResilientHttpClientApp.Std.csproj">
-      <Project>{aa2c925a-a82f-400e-8b84-9f3024a48ba9}</Project>
-      <Name>ResilientHttpClientApp.Std</Name>
+    <ProjectReference Include="..\ResilientHttpClientPcl.Std\ResilientHttpClientPcl.Std.csproj">
+      <Project>{23a6e4e4-f389-4b1b-954e-a3964d92b38e}</Project>
+      <Name>ResilientHttpClientPcl.Std</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResilientHttpClientPcl\ResilientHttpClientPcl.csproj">
+      <Project>{40cc2a19-f699-46ac-a178-2872576f06ad}</Project>
+      <Name>ResilientHttpClientPcl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

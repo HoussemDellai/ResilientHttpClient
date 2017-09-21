@@ -3,6 +3,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Newtonsoft.Json": "10.0.3",
     "Polly": "5.3.1",
+    "System.Net.Http": "4.3.3",
     "Xamarin.Forms": "2.4.0.275-pre3"
   },
   "frameworks": {
