@@ -20,7 +20,6 @@ namespace ResilientHttpClientApp.Std.ResilienceHttp
     public class ResilientHttpClient : IHttpClient
     {
         private readonly HttpClient _client;
-        //private readonly ILogger<ResilientHttpClient> _logger;
         private readonly Func<string, IEnumerable<Policy>> _policyCreator;
         private readonly ConcurrentDictionary<string, PolicyWrap> _policyWrappers;
 
