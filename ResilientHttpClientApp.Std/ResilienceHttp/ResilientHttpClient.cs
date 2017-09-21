@@ -32,6 +32,25 @@ namespace ResilientHttpClientApp.Std.ResilienceHttp
             _policyWrappers = new ConcurrentDictionary<string, PolicyWrap>();
         }
 
+        public Task<string> GetStringAsync(string uri, string authorizationToken = null, string authorizationMethod = "Bearer")
+        {
+            var origin = GetOriginFromUri(uri);
+
+            return HttpInvoker(origin, async () =>
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
+
+                if (authorizationToken != null)
+                {
+                    requestMessage.Headers.Authorization = new AuthenticationHeaderValue(authorizationMethod, authorizationToken);
+                }
+
+                var response = await _client.SendAsync(requestMessage);
+
+                return await response.Content.ReadAsStringAsync();
+            });
+        }
+
         public Task<HttpResponseMessage> PostAsync<T>(string uri, T item, string authorizationToken = null, string requestId = null, string authorizationMethod = "Bearer")
         {
             return DoPostPutAsync(HttpMethod.Post, uri, item, authorizationToken, requestId, authorizationMethod);
@@ -61,25 +80,6 @@ namespace ResilientHttpClientApp.Std.ResilienceHttp
                 }
 
                 return await _client.SendAsync(requestMessage);
-            });
-        }
-
-        public Task<string> GetStringAsync(string uri, string authorizationToken = null, string authorizationMethod = "Bearer")
-        {
-            var origin = GetOriginFromUri(uri);
-
-            return HttpInvoker(origin, async () =>
-            {
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
-
-                if (authorizationToken != null)
-                {
-                    requestMessage.Headers.Authorization = new AuthenticationHeaderValue(authorizationMethod, authorizationToken);
-                }
-
-                var response = await _client.SendAsync(requestMessage);
-
-                return await response.Content.ReadAsStringAsync();
             });
         }
 
@@ -138,7 +138,6 @@ namespace ResilientHttpClientApp.Std.ResilienceHttp
             // the policies defined in the wrapper
             return await policyWrap.ExecuteAsync(action, new Context(normalizedOrigin));
         }
-
 
         private static string NormalizeOrigin(string origin)
         {
